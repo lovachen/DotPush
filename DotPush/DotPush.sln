@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotPush.IMServie", "DotPush
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotPush.Api", "DotPush.Api\DotPush.Api.csproj", "{1C3783BB-5FF4-4604-B803-CFBDAEB0426D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotPush.Web.Core", "DotPush.Web.Core\DotPush.Web.Core.csproj", "{8E41C90C-779C-4B5E-9BAC-C914A41775F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{1C3783BB-5FF4-4604-B803-CFBDAEB0426D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C3783BB-5FF4-4604-B803-CFBDAEB0426D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C3783BB-5FF4-4604-B803-CFBDAEB0426D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E41C90C-779C-4B5E-9BAC-C914A41775F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E41C90C-779C-4B5E-9BAC-C914A41775F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E41C90C-779C-4B5E-9BAC-C914A41775F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E41C90C-779C-4B5E-9BAC-C914A41775F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{57387E49-0CAA-4368-B045-C8BF570FE1E9} = {0B9C2D0C-A81A-4609-8D66-2DA8B7C50B17}
 		{52178A7E-794C-4D3D-9F5A-BD9ADC7F7B8E} = {F465947E-533F-4DC6-AE70-59748CD46FDB}
 		{1C3783BB-5FF4-4604-B803-CFBDAEB0426D} = {0B9C2D0C-A81A-4609-8D66-2DA8B7C50B17}
+		{8E41C90C-779C-4B5E-9BAC-C914A41775F3} = {55CC2846-41CC-44AE-8014-41D5FFD01A85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3B0004D-9F5A-466B-A2D4-6DF75712B78D}
