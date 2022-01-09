@@ -12,11 +12,15 @@ namespace DotPush.IMServie
         private ServiceInfoConfig _serviceInfo;
         private IWebHostEnvironment _env;
 
-        public ConsulRegisterService(IConsulClient consulClient, ServiceInfoConfig config,IWebHostEnvironment environment)
+        public ConsulRegisterService(IConsulClient consulClient, ServiceInfoConfig config, IWebHostEnvironment environment)
         {
             _consulClient = consulClient;
             _serviceInfo = config;
             _env = environment;
+            if (String.IsNullOrEmpty(_serviceInfo.Id))
+            {
+                _serviceInfo.Id =$"{_serviceInfo.IP}:{_serviceInfo.Port}";
+            }
         }
 
         /// <summary>
@@ -26,14 +30,14 @@ namespace DotPush.IMServie
         /// <returns></returns>
         public async Task StartAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine($"start to register service {_serviceInfo.Id} to consul client ...");
-            await _consulClient.Agent.ServiceDeregister(_serviceInfo.Id, cancellationToken);
+            Console.WriteLine($"start to register service {_serviceInfo.Name} to consul client ...");
+            await _consulClient.Agent.ServiceDeregister(_serviceInfo.Name, cancellationToken);
 
             var meta = new Dictionary<string, string>();
             meta.Add("IMPort", _serviceInfo.IMPort.ToString());
             await _consulClient.Agent.ServiceRegister(new AgentServiceRegistration
             {
-                ID = _serviceInfo.Id,
+                ID= _serviceInfo.Id,
                 Name = _serviceInfo.Name,// 服务名
                 Address = _serviceInfo.IP, // 服务绑定IP
                 Port = _serviceInfo.Port, // 服务绑定端口
