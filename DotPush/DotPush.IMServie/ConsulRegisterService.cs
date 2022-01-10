@@ -19,7 +19,7 @@ namespace DotPush.IMServie
             _env = environment;
             if (String.IsNullOrEmpty(_serviceInfo.Id))
             {
-                _serviceInfo.Id =$"{_serviceInfo.IP}:{_serviceInfo.Port}";
+                _serviceInfo.Id = $"{_serviceInfo.IP}:{_serviceInfo.Port}";
             }
         }
 
