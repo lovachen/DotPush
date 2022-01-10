@@ -10,11 +10,6 @@ logger.Debug("init main");
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.Host.ConfigureAppConfiguration(build =>
-//{
-//    build.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json");
-//});
-
 // Add services to the container.
 builder.Services.AddControllers();
 
@@ -28,9 +23,6 @@ builder.Services.AddHostedService<ConsulRegisterService>();
 //builder.Logging.ClearProviders();
 builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
 builder.Host.UseNLog();
-//var urls = builder.Configuration.GetValue<string>("urls");
-
-//builder.WebHost.UseUrls(builder.Configuration.GetValue<string>("urls"));
 
 // Add services to the container.
 var app = builder.Build();
