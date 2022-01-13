@@ -2,6 +2,11 @@ using Consul;
 using DotPush.IMServie;
 using DotPush.IMServie.Models;
 using DotPush.Web.Core;
+using NLog;
+using NLog.Web;
+
+var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+logger.Debug("init main");
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +19,11 @@ builder.Services.AddSingleton(cfg);
 builder.Services.AddSingleton<ConsulRegisterService>();
 builder.Services.AddSingleton<IConsulClient>(new ConsulClient(x => x.Address = new Uri(cfg.ConsulAddress)));
 builder.Services.AddHostedService<ConsulRegisterService>();
+
+//builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+builder.Host.UseNLog();
+
 // Add services to the container.
 var app = builder.Build();
 
